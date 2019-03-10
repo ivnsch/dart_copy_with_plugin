@@ -1,0 +1,17 @@
+<idea-plugin>
+    <id>com.schuetz</id>
+    <name>Dart copyWith generator for Android Studio.</name>
+    <version>0.0.1</version>
+    <vendor email="ivanhp978@gmail.com" url="https://github.com/i-schuetz/dart_copy_with_plugin">Ivan Schuetz</vendor>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+    <actions>
+        <action id="action.GenerateCopyWithMethodAction" class="action.GenerateCopyWithMethodAction" text="Generate copyWith">
+            <add-to-group group-id="GenerateGroup" anchor="after" relative-to-action="GenerateSetter"/>
+        </action>
+    </actions>
+</idea-plugin>
