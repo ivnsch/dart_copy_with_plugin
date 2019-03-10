@@ -1,4 +1,4 @@
-# dart_copy_with_plugin
+# Dart copyWith plugin
 
 This plugin autogenerates a `copyWith` implementation for Dart classes in Android Studio.
 
@@ -10,9 +10,9 @@ Instructions:
 
 ![ScreenShot](img/screenshot.png)
 
-Alternatively, right click on file and then select "Generate..."
+Alternatively, right click in the editor and select "Generate..."
 
-- Click on "Generate copyWith"
+- Select the "copyWith" menu item.
  
 ### Current limitations:
 

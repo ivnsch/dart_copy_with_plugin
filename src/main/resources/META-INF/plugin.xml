@@ -1,12 +1,14 @@
 <idea-plugin>
     <id>com.schuetz</id>
-    <name>Dart copyWith generator for Android Studio.</name>
-    <description>
-        - Position the cursor where you want to insert the copyWith method.
-        - Press CMD+N / CTRL+N to show the generate dialog (Alternatively, right click on file and then select "Generate...")
-        - Cick on "copyWith".
-        - Click on the Github link below for more details!
-    </description>
+    <name>Dart copyWith generator for Android Studio</name>
+    <description><![CDATA[
+        <ul>
+            <li>Position the cursor where you want to insert the copyWith method.</li>
+            <li>Press CMD+N / CTRL+N to show the generate dialog (Alternatively, right click in the editor and select "Generate...")</li>
+            <li>Select the "copyWith" menu item.</li>
+            <li>See <a href="https://github.com/i-schuetz/dart_copy_with_plugin">Github</a> for more details.</li>
+        </ul>
+    ]]></description>
     <version>0.0.1</version>
     <vendor email="ivanhp978@gmail.com" url="https://github.com/i-schuetz/dart_copy_with_plugin">Ivan Schuetz</vendor>
 
