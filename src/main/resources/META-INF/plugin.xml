@@ -16,7 +16,7 @@
     </extensions>
 
     <actions>
-        <action id="action.GenerateCopyWithMethodAction" class="action.GenerateCopyWithMethodAction" text="Generate copyWith">
+        <action id="action.GenerateCopyWithMethodAction" class="action.GenerateCopyWithMethodAction" text="copyWith">
             <add-to-group group-id="GenerateGroup" anchor="after" relative-to-action="GenerateSetter"/>
         </action>
     </actions>

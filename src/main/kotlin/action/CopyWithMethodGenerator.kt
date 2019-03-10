@@ -1,10 +1,10 @@
 package action
 
 class CopyWithMethodGenerator {
-    private val dartFieldLineRegex = """^\s*(?:final)?\s*(\w+)\s*(\w+);$""".toRegex()
+    private val fieldLineRegex = """^\s*(?:final)?\s*(\w+)\s*(\w+);$""".toRegex()
     private val classNameLineRegex = """^.*(?:class)\s*(\w+).*$""".toRegex()
 
-    private val intendation = "  "
+    private val indentation = "  "
 
     fun generate(fileContent: CharSequence): String? {
         val lines = fileContent.lines()
@@ -16,8 +16,8 @@ class CopyWithMethodGenerator {
         )
     }
 
-    private fun generateCopyWithMethodString(className: String, fields: List<DartField>): String =
-        CopyWithMethodFormatter(CopyWithMethod(className, fields), intendation).format()
+    private fun generateCopyWithMethodString(className: String, fields: List<Field>): String =
+        CopyWithMethodFormatter(CopyWithMethod(className, fields), indentation).format()
 
     private fun extractClassName(line: String): String? {
         val result = classNameLineRegex.find(line) ?: return null
@@ -29,41 +29,41 @@ class CopyWithMethodGenerator {
     }
 
     /// Extracts leading (from the beginning until first non-field and non-blank line) field declarations.
-    private fun extractLeadingFields(lines: List<String>): List<DartField> =
+    private fun extractLeadingFields(lines: List<String>): List<Field> =
         lines.takeWhile { toField(it) != null || it.isBlank() }.mapNotNull { toField(it) }
 
-    private fun toField(line: String): DartField? {
-        val result = dartFieldLineRegex.find(line) ?: return null
+    private fun toField(line: String): Field? {
+        val result = fieldLineRegex.find(line) ?: return null
         return if (result.groupValues.size == 3) {
-            DartField(result.groupValues[1], result.groupValues[2])
+            Field(result.groupValues[1], result.groupValues[2])
         } else { // No match
             null
         }
     }
 }
 
-private data class DartField(val type: String, val name: String)
-private data class CopyWithMethod(val clazz: String, val fields: List<DartField>)
+private data class Field(val type: String, val name: String)
+private data class CopyWithMethod(val clazz: String, val fields: List<Field>)
 
-private class CopyWithMethodFormatter(val copyWithMethod: CopyWithMethod, val intendation: String) {
+private class CopyWithMethodFormatter(val copyWithMethod: CopyWithMethod, val indentation: String) {
 
     fun format(): String = copyWithMethod.toFormattedLines().joinToString("\n")
 
     private fun CopyWithMethod.toFormattedLines(): List<String> = listOf(
         "$clazz copyWith({${toMethodParametersString(fields)}}) {",
-        "${intendation.repeat(2)}return $clazz("
+        "${indentation.repeat(2)}return $clazz("
     ) + copyWithFallbackLines().map {
-        "${intendation.repeat(3)}$it"
+        "${indentation.repeat(3)}$it"
     } + listOf(
-        "${intendation.repeat(2)});",
-        "$intendation}"
+        "${indentation.repeat(2)});",
+        "$indentation}"
     )
 
     private fun CopyWithMethod.copyWithFallbackLines() = fields.map { toCopyWithFallbackLine(it) }
 
-    private fun toMethodParametersString(fields: List<DartField>): String =
+    private fun toMethodParametersString(fields: List<Field>): String =
         fields.joinToString(", ") { field -> "${field.type} ${field.name}" }
 
-    private fun toCopyWithFallbackLine(field: DartField): String =
+    private fun toCopyWithFallbackLine(field: Field): String =
         "${field.name}: ${field.name} ?? this.${field.name},"
 }
