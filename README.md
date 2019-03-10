@@ -6,14 +6,12 @@ Instructions:
 
 - Position the cursor where you want to insert the  `copyWith` method.
 
-- Press CMD+N / CTRL+N to show the generate dialog:
+- Press CMD+N / CTRL+N to show the generate dialog (Alternatively, right click in the editor and select "Generate...")
 
 ![ScreenShot](img/screenshot.png)
 
-Alternatively, right click in the editor and select "Generate..."
-
 - Select the "copyWith" menu item.
- 
+
 ### Current limitations:
 
 Most of these are not an issue if you're following Dart's coding conventions. Mentioned for completeness:
@@ -25,13 +23,12 @@ Most of these are not an issue if you're following Dart's coding conventions. Me
 
 ### Contribute:
 
-- The logic to generate the method string is in [CopyWithMethodGenerator.kt](https://github.com/i-schuetz/SwiftCharts/wiki). You don't need any plugin knowledge to modify its behavior. 
-To contribute:
-    1. Fork
-    2. Commit changes to a branch in your fork
-    3. Push your code and make a pull request
+- The logic to generate the method string is in [CopyWithMethodGenerator.kt](https://github.com/i-schuetz/dart_copy_with_plugin/blob/master/src/main/kotlin/action/CopyWithMethodGenerator.kt). You don't need any plugin knowledge to modify its behavior. To contribute:
+1. Fork
+2. Commit changes to a branch in your fork
+3. Push your code and make a pull request
     
-    Adding some unit tests for [CopyWithMethodGenerator.kt](https://github.com/i-schuetz/SwiftCharts/wiki) would be great, in particular to be able to test without having to touch anything plugin related.
+Adding some unit tests for [CopyWithMethodGenerator.kt](https://github.com/i-schuetz/dart_copy_with_plugin/blob/master/src/main/kotlin/action/CopyWithMethodGenerator.kt) would be great, in particular to be able to test without having to touch anything plugin related.
 
 ### Outlook:
 
