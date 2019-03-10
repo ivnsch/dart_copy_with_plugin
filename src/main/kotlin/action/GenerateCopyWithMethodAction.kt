@@ -14,14 +14,10 @@ class GenerateCopyWithMethodAction : AnAction("Generate copyWith") {
     }
 
     override fun actionPerformed(event: AnActionEvent) {
-        val editor = event.getData(CommonDataKeys.EDITOR)
-        val document = editor?.document
-        val insertOffset = editor?.caretModel?.currentCaret?.offset ?: 0
-        val fileContent = document?.charsSequence ?: return
-        val toInsert = CopyWithMethodGenerator().generate(fileContent) ?: return
-
+        val editor = event.getData(CommonDataKeys.EDITOR) ?: return
+        val toInsert = CopyWithMethodGenerator().generate(editor.document.charsSequence) ?: return
         WriteCommandAction.runWriteCommandAction(event.project) {
-            document.insertString(insertOffset, toInsert)
+            editor.document.insertString(editor.caretModel.currentCaret.offset, toInsert)
         }
     }
 }
