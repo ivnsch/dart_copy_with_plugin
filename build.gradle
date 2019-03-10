@@ -24,8 +24,8 @@ intellij {
     version '2018.2'
     alternativeIdePath '/Applications/Android Studio.app'
 }
-patchPluginXml {
-    changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+
+publishPlugin {
+    username intellijPublishUsername
+    password intellijPublishPassword
 }
