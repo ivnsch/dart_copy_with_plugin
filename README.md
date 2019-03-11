@@ -12,6 +12,34 @@ Instructions:
 
 - Select the "copyWith" menu item.
 
+### Example:
+
+Given the class:
+
+```dart
+class Book {
+    final String id;
+    final String name;
+    final String description;
+    final String author;
+    
+    // ... methods ...
+}
+```
+
+The plugin will generate the following `copyWith` method:
+
+```dart
+Book copyWith({String id, String name, String description, Author author}) {
+    return Book(
+        id: id ?? this.id,
+        name: name ?? this.name,
+        description: description ?? this.description,
+        author: author ?? this.author,
+    );
+}
+```
+
 ### Current limitations:
 
 Most of these are not an issue if you're following Dart's coding conventions. Mentioned for completeness:
