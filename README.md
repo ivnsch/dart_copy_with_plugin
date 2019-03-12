@@ -47,7 +47,7 @@ Most of these are not an issue if you're following Dart's coding conventions. Me
 - The fields have to be listed directly below the class declaration (new lines are allowed). So for example, if you have field declarations below method declarations, they will not be included.
 - Only one field per line! This, for example, will not be parsed: `final String foo; final String bar;`
 - Fields with a default value will not be included. E.g. `String foo = "hello"`.
-- It doesn't work with multiple classes per file.
+- If there are multiple classes per file, it works only for the first one.
 
 ### Contribute:
 
