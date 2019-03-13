@@ -19,7 +19,8 @@
 
     <actions>
         <action id="action.GenerateCopyWithMethodAction" class="action.GenerateCopyWithMethodAction" text="copyWith">
-            <add-to-group group-id="GenerateGroup" anchor="after" relative-to-action="GenerateSetter"/>
+            <!--suppress PluginXmlValidity -->
+            <add-to-group group-id="GenerateGroup" anchor="after" relative-to-action="Generate.EqualsAndHashcode.Dart"/>
         </action>
     </actions>
 </idea-plugin>
