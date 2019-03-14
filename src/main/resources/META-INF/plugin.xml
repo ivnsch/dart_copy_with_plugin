@@ -23,4 +23,19 @@
             <add-to-group group-id="GenerateGroup" anchor="after" relative-to-action="Generate.EqualsAndHashcode.Dart"/>
         </action>
     </actions>
+    <change-notes><![CDATA[
+        <ul>
+            <li>0.0.2
+                <ul>
+                    <li>Menu entry now appears only in Dart files.</li>
+                    <li>Menu entry moved to top section of generate menu.</li>
+                </ul>
+                </li>
+            <li>0.0.1
+                <ul>
+                    <li>First release.</li>
+                </ul>
+            </li>
+        </ul>
+    ]]></change-notes>
 </idea-plugin>
