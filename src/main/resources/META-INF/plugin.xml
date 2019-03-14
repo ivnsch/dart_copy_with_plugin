@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.schuetz</id>
-    <name>Dart copyWith generator for Android Studio</name>
+    <name>Dart copyWith generator</name>
     <description><![CDATA[
         <ul>
             <li>Position the cursor where you want to insert the copyWith method.</li>
