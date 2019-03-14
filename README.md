@@ -1,6 +1,6 @@
 # Dart copyWith plugin
 
-This plugin autogenerates a `copyWith` implementation for Dart classes in Android Studio.
+Generates a `copyWith` implementation for Dart classes in IntelliJ / Android Studio.
 
 Instructions:
 
