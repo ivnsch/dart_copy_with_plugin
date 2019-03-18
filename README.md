@@ -21,7 +21,7 @@ class Book {
     final String id;
     final String name;
     final String description;
-    final String author;
+    final Author author;
     
     // ... methods ...
 }
