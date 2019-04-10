@@ -9,6 +9,7 @@ class CopyWithMethodGenerator {
     fun generate(fileContent: CharSequence): String? {
         val lines = fileContent.lines()
         val classLineIndex = lines.indexOfFirst { classNameLineRegex.matches(it) }
+        if (classLineIndex == -1) return null.also { println("No class found") }
         val className = extractClassName(lines[classLineIndex]) ?: return null.also { println("Couldn't find class name") }
         return generateCopyWithMethodString(
             className,
